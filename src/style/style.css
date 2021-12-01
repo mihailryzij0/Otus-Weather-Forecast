@@ -1,10 +1,52 @@
-body {
-  background-color: #345;
+.section-weather{
+    background: linear-gradient(24deg, rgba(2,0,36,1) 0%, rgba(63,83,248,1) 0%, rgba(0,212,255,1) 100%); 
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    padding: 50px;
+    height: 500px;
 }
-.html {
-  max-width: 500px;
-  height: 500px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("../assets/200620123713201889688.png");
+.weather{
+    display: flex;
+    margin: 0 auto;
+    max-width: max-content;
+    border: 2px  solid white;
+    padding: 20px;
+
+}
+.weather-title{
+    text-align: center;
+}
+.weather-map{
+    min-width: 300px;
+    min-height: 300px;
+}
+.weather-info{
+    margin-left: 40px;
+}
+.weather-input{
+    padding: 5px 10px 5px 10px;
+}
+
+.weather-button{
+    padding: 4px;
+}
+.weather-select{
+    min-width: 160px;
+    margin-top: 30px;
+    padding: 5px 27px 5px 27px;
+    text-transform: capitalize;
+
+
+}
+.weather-bottom-info{
+    position: relative;
+    margin-top: 50px;
+}
+.weather-bottom-info img{
+    position: absolute;
+    right: 49%;
+    top: 5px;
+    height: 80px;
+    max-width: 100%;
 }
