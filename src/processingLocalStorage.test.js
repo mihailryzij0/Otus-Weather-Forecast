@@ -1,7 +1,7 @@
-import {setDataLocalStorage, getDataLocalStorage} from './processingLocalStorage'
+import {findListCities, makeListCities} from './processingLocalStorage'
 
-describe('save to local storage', () => {
-    let storage;
+describe('save data to local storage', () => {
+  let storage;
   const storageSetItem = global.Storage.prototype.setItem;
   const storageGetItem = global.Storage.prototype.getItem;
 
@@ -25,17 +25,17 @@ describe('save to local storage', () => {
     global.Storage.prototype.getItem = storageGetItem;
   });
   
-    it('should save to local storage', async () => {
-        expect(getDataLocalStorage()).toStrictEqual([]);
+    it('sending and filtering data', async () => {
+        expect(findListCities()).toStrictEqual([]);
         expect(global.Storage.prototype.getItem).toHaveBeenCalledWith('array');
     })
     it('', async () => {
         const arr = [1,2,3,3,4,5,6,7,8,2];
-        const newarr = '[1,2,3,4,5,6,7,8]';
-        const expFridge = {};
-        expFridge['array'] = newarr;
+        const newarr = '[2,1,3,4,5,6,7,8]';
+        const expectStorage = {};
+        expectStorage.array = newarr;
 
-        setDataLocalStorage(arr, 2)
-        expect(storage).toStrictEqual(expFridge);
+        makeListCities(arr, 2)
+        expect(storage).toStrictEqual(expectStorage);
     })
   })

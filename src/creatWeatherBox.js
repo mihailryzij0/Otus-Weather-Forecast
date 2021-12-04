@@ -9,7 +9,8 @@ export function creatWeatherBox(cityData, mapBlock, weatherBlock){
  weatherBlock.innerHTML =`
  <div class="weather-bottom-info">
  <h3 class="weather-bottom-info__city">${cityData.name}</h3>
- <p class="weather-bottom-info__informer">${Math.round(cityData.main.temp)} &degC</p>
+ <p class="weather-bottom-info__informer">
+ ${Math.round(cityData.main.temp)} &degC</p>
  <img src="https://openweathermap.org/img/wn/${cityData.weather[0].icon}.png" alt="weather">
  </div>
 

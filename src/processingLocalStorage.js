@@ -1,15 +1,15 @@
-import {creatingOptionsSelect} from './creatingOptionsSelect'
-export   function getDataLocalStorage(){
-    let  arrStorage = JSON.parse(localStorage.getItem("array") || '[]');
+
+export   function findListCities(){
+    const  arrStorage = JSON.parse(localStorage.getItem("array") || '[]');
      return arrStorage;
 }
-export  function setDataLocalStorage(items, cityData) {
-    items.push(cityData);
-    // const uniqueSet = new Set(items);
-    const uniqueArrStorage = [...new Set(items)]
-    if(uniqueArrStorage.length >= 10){
-      uniqueArrStorage.splice(0, 1);
+export  function makeListCities(items, cityData) {
+    items.unshift(cityData);
+    const uniqueObj = new Set(items);
+    const uniqueArr = [...uniqueObj]
+    if(uniqueArr.length >= 10){
+      uniqueArr.splice(0, 1);
     };
-    creatingOptionsSelect(uniqueArrStorage)
-    localStorage.setItem('array' ,JSON.stringify(uniqueArrStorage));
+    localStorage.setItem('array' ,JSON.stringify(uniqueArr));
+    return uniqueArr
 }

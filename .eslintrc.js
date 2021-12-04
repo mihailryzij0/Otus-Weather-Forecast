@@ -14,11 +14,13 @@ module.exports = {
     "no-console": "off",
     "no-shadow": "off",
     "no-unused-expressions": "off",
+    "no-unused-vars" : "off",
     "max-len": [
       "error",
       {
         ignoreComments: true,
         ignoreUrls: true,
+        ignoreStrings: true,
       },
     ],
     "no-param-reassign": [

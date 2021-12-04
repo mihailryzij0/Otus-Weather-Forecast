@@ -1,7 +1,9 @@
 import { creatWeatherBox } from "./creatWeatherBox";
 import { getCityWeather } from "./getCityWeather";
 import {getCityName} from "./getCityName";
-import {setDataLocalStorage, getDataLocalStorage} from './processingLocalStorage'
+import {findListCities, makeListCities} from './processingLocalStorage'
+import {creatingOptionsSelect} from './creatingOptionsSelect'
+
 export function showWeather(el){
     el.innerHTML = `  
   <section class="section-weather">
@@ -11,8 +13,11 @@ export function showWeather(el){
       </div>
       <div class="weather-info">
         <div class="weather-info__item">
-          <input class="weather-input" placeholder="Введите название город" type="text">
+        <form>
+          <input class="weather-input"
+           placeholder="Введите название город" type="text">
           <button class="weather-button">узнать погоду</button>
+        </form>
         </div>
         <div class="weather-info__item">
           <select class="weather-select" name="select"></select>
@@ -30,36 +35,45 @@ export function showWeather(el){
   const select = document.querySelector('.weather-select');
   const infoBox  = document.querySelector('#info');
   
+  async function workingUserData(...theArgs){
+    const weatherData = await getCityWeather(theArgs[0], theArgs[1]);
+    const listCityName =   findListCities();
+    const newListCityName  = makeListCities(listCityName,weatherData.name);
+    creatingOptionsSelect(newListCityName)
+    creatWeatherBox(weatherData, mapBox, infoBox );
+  }
+
+
   setTimeout(async () => {
     const coren = await getCityName();
-    const weatherData = await getCityWeather(coren.latitude, coren.longitude);
-    let dataLocalStorage =   getDataLocalStorage();
-    setDataLocalStorage(dataLocalStorage,weatherData.name);
-    creatWeatherBox(weatherData, mapBox, infoBox );
+    workingUserData(coren.latitude,coren.longitude );
   });
 
-  function processingInput(){
+
+
+ function processingInput(){
     button.addEventListener('click', async (e) =>{
-      if(input.value == ''){
+      e.preventDefault();
+      if(input.value === ''){
       input.style.cssText = `border: 2px solid red;`
       }else{
-        const weatherData = await getCityWeather(input.value)
-        creatWeatherBox(weatherData, mapBox, infoBox );
-        let dataLocalStorage = getDataLocalStorage();
-        setDataLocalStorage(dataLocalStorage,weatherData.name);
-        input.value = '';
         input.style.cssText = `border: none;`
+        workingUserData(input.value);
+        input.value = '';
       }
     })
-  }
-  processingInput();
+    }
+
+    processingInput();
 
   function processingSelect(){
     select.addEventListener('change', async () =>{
-      let vol = select.options.selectedIndex;
-      const weatherData = await getCityWeather(select.options[vol].text);
-      creatWeatherBox(weatherData, mapBox, infoBox );
+        const vol = select.options.selectedIndex;
+        const weatherData = await getCityWeather(select.options[vol].text);
+        creatWeatherBox(weatherData, mapBox, infoBox );
     })
   }
-  processingSelect()
+  processingSelect();
+  
+
 }
