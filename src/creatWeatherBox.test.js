@@ -1,4 +1,5 @@
 import {creatWeatherBox} from './creatWeatherBox'
+
 describe('creatWeatherBox', ()=>{
     let el;
     beforeEach(() => {
@@ -8,7 +9,7 @@ describe('creatWeatherBox', ()=>{
     afterEach(() => {
       document.querySelector("div").innerHTML = null;
     });
-    let cityData ={
+    const cityData ={
         name: 'Kirov',
         main: {
             temp: 20,
