@@ -4,7 +4,7 @@ export   function findListCities(){
      return arrStorage;
 }
 export  function makeListCities(items, cityData) {
-    items.unshift(cityData);
+    items.push(cityData);
     const uniqueObj = new Set(items);
     const uniqueArr = [...uniqueObj]
     if(uniqueArr.length >= 10){

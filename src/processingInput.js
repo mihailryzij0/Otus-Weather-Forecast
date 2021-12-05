@@ -7,7 +7,6 @@ export function processingInput(fn, input, button){
         input.style.cssText = `border: none;`
         fn(input.value);
         input.value = '';
-        
       }
     })
     }

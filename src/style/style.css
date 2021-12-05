@@ -12,14 +12,13 @@
     max-width: max-content;
     border: 2px  solid white;
     padding: 20px;
-
+     
 }
 .weather-title{
     text-align: center;
 }
 .weather-map{
-    min-width: 300px;
-    min-height: 300px;
+    flex-basis: 30%;
 }
 .weather-info{
     margin-left: 40px;
@@ -31,13 +30,14 @@
 .weather-button{
     padding: 4px;
 }
-.weather-select{
-    min-width: 160px;
-    margin-top: 30px;
-    padding: 5px 27px 5px 27px;
-    text-transform: capitalize;
+.weather-list{
+display: flex;
+flex-wrap: wrap;
 
-
+}
+.list-item{
+    flex-basis: 50%;
+    display: inline;
 }
 .weather-bottom-info{
     position: relative;
@@ -49,4 +49,7 @@
     top: 5px;
     height: 80px;
     max-width: 100%;
+}
+form{
+    display: inline-block;
 }
