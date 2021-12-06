@@ -17,15 +17,15 @@ export function showWeather(el){
         <div class="weather-info__item">
         <form>
           <input class="weather-input" 
-          placeholder="Введите название город" type="text">
+          placeholder="Введите название города" type="text">
           <button class="weather-button">узнать погоду</button>
         </form>
         </div>
-        <div class="weather-info__item">
-        <label for="weather-select">История поиска</label>
-          <ul class="weather-list" name="select"></ul>
-        </div>
         <div class="weather-info__item" id="info">
+        </div>
+        <div class="weather-info__item">
+        <p class="weather-info__title">История поиска</p>
+          <ul class="weather-list" name="select"></ul>
         </div>
       </div>
     </div>
