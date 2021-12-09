@@ -1,10 +1,8 @@
-import { creatWeatherBox } from "./creatWeatherBox";
-import { getCityWeather } from "./getCityWeather";
+
 import {getCityName} from "./getCityName";
-import {findListCities, makeListCities} from './processingLocalStorage'
-import {creatingListHistory} from './creatingListHistory'
 import {processingInput} from './processingInput'
-import {processingListHistory} from './processingListHistory'
+import {processingSelect} from './processingSelect'
+import { workingUserData } from "./workingUserData";
 
 export function showWeather(el){
     el.innerHTML = `  
@@ -21,37 +19,24 @@ export function showWeather(el){
           <button class="weather-button">узнать погоду</button>
         </form>
         </div>
-        <div class="weather-info__item" id="info">
+        <div class="weather-info__item info" >
         </div>
         <div class="weather-info__item">
         <p class="weather-info__title">История поиска</p>
-          <ul class="weather-list" name="select"></ul>
+          <select class="weather-select"></select>
         </div>
       </div>
     </div>
   </section>
   `;
-  const mapBox = document.querySelector(".weather-map");
-  const input = document.querySelector(".weather-input");
-  const button = document.querySelector(".weather-button");
-  const infoBox  = document.querySelector('#info');
-  
-  async function workingUserData(...theArgs){
-    const weatherData = await getCityWeather(theArgs[0], theArgs[1]);
-    const listCityName =   findListCities();
-    const newListCityName  = makeListCities(listCityName,weatherData.name);
-    creatingListHistory(newListCityName)
-    creatWeatherBox(weatherData, mapBox, infoBox );
-  }
 
-  
   setTimeout(async () => {
     const coren = await getCityName();
     workingUserData(coren.latitude,coren.longitude );
   });
 
-    processingInput(workingUserData, input, button );
-    processingListHistory(workingUserData);
+    processingInput(workingUserData);
+    processingSelect(workingUserData);
   
 
 }

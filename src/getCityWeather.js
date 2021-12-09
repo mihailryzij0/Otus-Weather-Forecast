@@ -7,9 +7,16 @@ export async function getCityWeather(lat, lon){
           }else{
                url = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${lat}&lang=ru&appid=${key}`;
           }
-          const weather = await fetch(url);
-          const cityWeather = await weather.json();
-          return  cityWeather 
+          try {
+               const weather = await fetch(url);
+               if(weather.ok){
+                    const cityWeather = await weather.json();
+                    return  cityWeather 
+               }
+              throw new Error('Вы ввели некорректное имя города')
+          } catch (e){
+               return alert (e)
+          }
      
  
 }
