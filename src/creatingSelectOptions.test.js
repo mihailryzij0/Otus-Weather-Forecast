@@ -11,7 +11,7 @@ describe('creatingOptionsSelect', ()=> {
   afterEach(() => {
     document.querySelector("select").innerHTML = null;
   });
-  it('ddsfgds', ()=>{
+  it('option list is created in the select block based on an array', ()=>{
       const cityList = ['Moskow', 'Kirov'];
       creatingSelectOptions(cityList);
       expect(select.options[0].textContent).toBe('Moskow');

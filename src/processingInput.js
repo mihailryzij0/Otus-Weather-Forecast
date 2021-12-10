@@ -1,4 +1,4 @@
-export function processingInput(fn){
+export function processingInput(handlerValueFunction){
   const input = document.querySelector(".weather-input");
   const button = document.querySelector(".weather-button");
     button.addEventListener('click', async (e) =>{
@@ -7,7 +7,7 @@ export function processingInput(fn){
          input.style.cssText = `border: 2px solid red;`
       }else{
         input.style.cssText = `border: none;`
-        fn(input.value);
+        handlerValueFunction(input.value);
         input.value = '';
         
       }

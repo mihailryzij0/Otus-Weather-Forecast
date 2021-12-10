@@ -1,9 +1,9 @@
 
-export  async function processingSelect(fn){
+export  async function processingSelect(handlerValueFunction){
     const listHistory = document.querySelector('select');
     listHistory.addEventListener('change', async () =>{
-    const v = listHistory.options.selectedIndex;
-    const txt = listHistory.options[v].text
-    fn(txt);
+    const indexOption = listHistory.options.selectedIndex;
+    const textContent = listHistory.options[indexOption].text
+    handlerValueFunction(textContent);
     })
   }

@@ -5,6 +5,15 @@ describe('creatWeatherBox', ()=>{
     beforeEach(() => {
       el = document.createElement("div");
       document.body.append(el);
+      el.innerHTML = `  
+        <div class="weather">
+          <div class="weather-map">
+          </div>
+            <div class="info" >
+            </div>
+        </div>
+      `;
+    
     });
     afterEach(() => {
       document.querySelector("div").innerHTML = null;

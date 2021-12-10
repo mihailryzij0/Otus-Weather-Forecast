@@ -1,4 +1,6 @@
-export function creatWeatherBox(cityData, mapBlock, weatherBlock){ 
+export function creatWeatherBox(cityData){ 
+  const mapBlock = document.querySelector(".weather-map");
+  const weatherBlock  = document.querySelector('.info');
   mapBlock.innerHTML =`
     <img src="https://maps.googleapis.com/maps/api/staticmap?center=${cityData.name}
     &zoom=9&size=300x300&&markers=size:mid%7Ccolor:0xFFFF00%7C${cityData.name}

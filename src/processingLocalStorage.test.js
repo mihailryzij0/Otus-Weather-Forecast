@@ -5,9 +5,6 @@ describe('save data to local storage', () => {
   const storageSetItem = global.Storage.prototype.setItem;
   const storageGetItem = global.Storage.prototype.getItem;
 
- beforeEach(()=>{
-   
- })
   beforeAll(() => {
     storage = {};
     global.Storage.prototype.setItem = jest.fn((key, value) => {
@@ -24,17 +21,17 @@ describe('save data to local storage', () => {
     global.Storage.prototype.getItem = storageGetItem;
   });
   
-    it('sending and filtering data', async () => {
+    it('findListCities getting data from LocalStorage', async () => {
         expect(findListCities()).toStrictEqual([]);
         expect(global.Storage.prototype.getItem).toHaveBeenCalledWith('array');
     })
-    it('', async () => {
+    it('makeListCities saves 10 values and removes duplicates ', async () => {
         const arr = [1,2,3,4,5,6,7,8,9,10,11];
-        const newarr = '[1,2,3,4,5,6,7,8,9,10]';
+        const newArr = '[1,2,3,4,5,6,7,8,9,10]';
         const expectStorage = {};
-        expectStorage.array = newarr;
-
-        makeListCities(arr, 1)
+        expectStorage.array = newArr;
+        makeListCities(arr, 1);
+        expect(global.Storage.prototype.setItem).toHaveBeenCalledWith( "array", newArr);
         expect(storage).toStrictEqual(expectStorage);
     })
   })

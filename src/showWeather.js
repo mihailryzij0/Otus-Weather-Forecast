@@ -4,7 +4,7 @@ import {processingInput} from './processingInput'
 import {processingSelect} from './processingSelect'
 import { workingUserData } from "./workingUserData";
 
-export function showWeather(el){
+export async function showWeather(el){
     el.innerHTML = `  
   <section class="section-weather">
     <h1 class="weather-title">Приложение прогноз погоды</h1>
@@ -30,10 +30,11 @@ export function showWeather(el){
   </section>
   `;
 
-  setTimeout(async () => {
+  async function getDataUploading() {
     const coren = await getCityName();
-    workingUserData(coren.latitude,coren.longitude );
-  });
+     workingUserData(coren.latitude,coren.longitude );
+  };
+    await getDataUploading();
 
     processingInput(workingUserData);
     processingSelect(workingUserData);

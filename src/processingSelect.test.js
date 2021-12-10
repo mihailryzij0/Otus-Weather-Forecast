@@ -16,7 +16,7 @@ describe('', ()=>{
        
     })
 
-    it("", async ()=>{
+    it("passing a value to a function by the 'change' event", async ()=>{
         processingSelect(fn)
         const itemListHistory = el.querySelector('select');
         itemListHistory.options.selectedIndex = 1

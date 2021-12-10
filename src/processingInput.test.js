@@ -16,16 +16,18 @@ describe("we get the value by clicking on the button", ()=>{
           input = el.querySelector('input');
           button = el.querySelector('button'); 
     })
+
+    
     it("we get the value by clicking on the button",()=>{    
         processingInput(fn);
         input.value = "Moskow";
-        button.click();
+        button.dispatchEvent(new Event("click"));
         expect(fn).toHaveBeenCalledWith("Moskow");
     })
-    it("we get the value by clicking on the button",()=>{     
+    it("we color the border input in red with the value ='' ",()=>{     
         processingInput(fn);
         input.value = "";
-        button.click();
+        button.dispatchEvent(new Event("click"));
         expect(input.style.border).toBe("2px solid red");
     })
 
