@@ -15,6 +15,7 @@ module.exports = {
     "no-shadow": "off",
     "no-alert": "off",
     "no-unused-expressions": "off",
+    "no-promise-executor-return": "off",
     "max-len": [
       "error",
       {

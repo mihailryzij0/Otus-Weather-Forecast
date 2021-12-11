@@ -35,7 +35,7 @@ describe("getCityWeather", () => {
      expect(resultCityName).toStrictEqual(weatherObj);
    });
 
-   it("getCityWeather должен возвращать алерт со значениями ошибка для неверного аргумента", async () => {
+   it("getCityWeather should return an alert with the values error for an invalid argument", async () => {
     global.fetch = jest.fn(() =>
       Promise.resolve({ 
       ok: false,

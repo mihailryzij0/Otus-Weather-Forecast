@@ -13,7 +13,7 @@ export function creatWeatherBox(cityData){
  <h3 class="weather-bottom-info__city">${cityData.name}</h3>
  <p class="weather-bottom-info__informer">
  ${Math.round(cityData.main.temp)} &degC</p>
- <img src="https://openweathermap.org/img/wn/${cityData.weather[0].icon}.png" alt="weather">
+ <img class="weather-bottom-info__image" src="https://openweathermap.org/img/wn/${cityData.weather[0].icon}.png" alt="weather">
  </div>
 
 `;
