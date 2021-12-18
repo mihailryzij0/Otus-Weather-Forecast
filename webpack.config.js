@@ -14,7 +14,7 @@ module.exports = {
       arrowFunction: false,
     },
   },
-  devtool: "production" ? "hidden-source-map" : "eval-source-map",
+  devtool: NODE_ENV === "production" ? "hidden-source-map" : "eval-source-map",
   module: {
     rules: [
       {
