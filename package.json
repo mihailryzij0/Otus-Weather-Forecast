@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --silent --coverage --coverageReporters='text' --coverageReporters='text-summary'",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
     "prepare": "husky install",
     "build": "webpack build --node-env production",
     "dev": "webpack serve --open"

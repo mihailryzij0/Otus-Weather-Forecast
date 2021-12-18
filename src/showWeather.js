@@ -1,11 +1,10 @@
-
-import {getCityName} from "./getCityName";
-import {processingInput} from './processingInput'
-import {processingSelect} from './processingSelect'
+import { getCityName } from "./getCityName";
+import { processingInput } from "./processingInput";
+import { processingSelect } from "./processingSelect";
 import { workingUserData } from "./workingUserData";
 
-export function showWeather(el){
-    el.innerHTML = `  
+export function showWeather(el) {
+  el.innerHTML = `  
   <section class="section-weather">
     <h1 class="weather-title">Приложение прогноз погоды</h1>
     <div class="weather">
@@ -30,16 +29,11 @@ export function showWeather(el){
   </section>
   `;
 
-  setTimeout(async()=>{
+  setTimeout(async () => {
     const coren = await getCityName();
-    await workingUserData(coren.latitude,coren.longitude );
-  }) 
- 
-  
-     
+    await workingUserData(coren.latitude, coren.longitude);
+  });
 
-    processingInput(workingUserData);
-    processingSelect(workingUserData);
-  
-
+  processingInput(workingUserData);
+  processingSelect(workingUserData);
 }
