@@ -5,20 +5,23 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const { NODE_ENV } = process.env;
 module.exports = {
-  entry: resolve(__dirname, "src/index.js"),
+  entry: resolve(__dirname, "src/index.ts"),
   output: {
-    filename: "bundle.js",
+    filename: "index.js",
     path: resolve(`${__dirname}/dist`),
     clean: true,
     environment: {
       arrowFunction: false,
     },
   },
+  resolve: {
+    extensions: [".js", ".ts"],
+  },
   devtool: NODE_ENV === "production" ? "hidden-source-map" : "eval-source-map",
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.([jt])s$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
