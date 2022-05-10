@@ -8,7 +8,8 @@ describe("showWeather", () => {
   const lat = 59.8983;
   const cityData = { latitude: lat, longitude: lon };
   const weatherObj = {
-    name: "Moskow",
+    name: "Moscow",
+    coord: { lon: 49.6601, lat: 58.5966 },
     main: {
       temp: 20,
     },
@@ -83,7 +84,7 @@ describe("showWeather", () => {
     expect(global.Storage.prototype.getItem).toHaveBeenCalledWith("array");
     expect(global.Storage.prototype.setItem).toHaveBeenCalledWith(
       "array",
-      '["Moskow"]'
+      '["Moscow"]'
     );
   });
 
@@ -91,6 +92,6 @@ describe("showWeather", () => {
     showWeather(el);
     await sleep(500);
     const select = el.querySelector("select");
-    expect(select.options[0].textContent).toBe("Moskow");
+    expect(select.options[0].textContent).toBe("Moscow");
   });
 });

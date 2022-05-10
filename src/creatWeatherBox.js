@@ -2,9 +2,7 @@ export function creatWeatherBox(cityData) {
   const mapBlock = document.querySelector(".weather-map");
   const weatherBlock = document.querySelector(".info");
   mapBlock.innerHTML = `
-    <img src="https://maps.googleapis.com/maps/api/staticmap?center=${cityData.name}
-    &zoom=9&size=300x300&&markers=size:mid%7Ccolor:0xFFFF00%7C${cityData.name}
-    &key=AIzaSyC1MvMZAHW6121-ZR8zgEX3_kZPwxY8zME">
+    <img src="https://static-maps.yandex.ru/1.x/?ll=${cityData.coord.lon},${cityData.coord.lat}&spn=0.1,0.1&size=270,270&l=map">
 
  `;
 

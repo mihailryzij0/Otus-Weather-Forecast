@@ -11,5 +11,6 @@ export async function workingUserData(...coordinatesCity) {
   const listCityName = findListCities();
   const newListCityName = makeListCities(listCityName, weatherData.name);
   creatingSelectOptions(newListCityName);
+  console.log(weatherData);
   creatWeatherBox(weatherData);
 }

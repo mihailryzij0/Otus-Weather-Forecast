@@ -22,6 +22,7 @@ describe("creatWeatherBox", () => {
     main: {
       temp: 20,
     },
+    coord: { lon: 49.6601, lat: 58.5966 },
     weather: [{ icon: "23d" }],
   };
   it("creating a block with a map and weather", () => {
